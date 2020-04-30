@@ -1,6 +1,6 @@
 {
   "name": "@tinymce/tinymce-react",
-  "version": "3.5.3",
+  "version": "3.5.4",
   "description": "Official TinyMCE React Component",
   "repository": {
     "url": "https://github.com/tinymce/tinymce-react"
@@ -22,7 +22,8 @@
     "watch": "tsc -w -p ./tsconfig.es2015.json",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "prepare": "yarn run build"
+    "prepare": "yarn run build",
+    "postinstall": "yarn run build"
   },
   "keywords": [],
   "author": "Tiny Technologies",
