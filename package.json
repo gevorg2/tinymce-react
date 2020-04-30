@@ -1,6 +1,6 @@
 {
   "name": "@tinymce/tinymce-react",
-  "version": "3.5.6",
+  "version": "3.5.7",
   "description": "Official TinyMCE React Component",
   "repository": {
     "url": "https://github.com/tinymce/tinymce-react"
@@ -15,13 +15,13 @@
   "module": "lib/es2015/main/ts/index.js",
   "scripts": {
     "lint": "tslint 'src/**/*.ts?(x)'",
-    "clean": "rimraf lib",
-    "test": "bedrock-auto -b chrome-headless -f src/test/ts/**/*Test.ts",
-    "test-manual": "bedrock -f src/test/ts/**/*Test.ts",
+    "clean": "./node_modules/.bin/rimraf lib",
+    "test": "./node_modules/.bin/bedrock-auto -b chrome-headless -f src/test/ts/**/*Test.ts",
+    "test-manual": "./node_modules/.bin/bedrock -f src/test/ts/**/*Test.ts",
     "build": "yarn run clean && tsc -p ./tsconfig.es2015.json && tsc -p ./tsconfig.cjs.json",
-    "watch": "tsc -w -p ./tsconfig.es2015.json",
-    "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook",
+    "watch": "./node_modules/.bin/tsc -w -p ./tsconfig.es2015.json",
+    "storybook": "./node_modules/.bin/start-storybook -p 6006",
+    "storybook:build": "./node_modules/.bin/build-storybook",
     "prepare": "yarn run build",
     "postinstall": "yarn run build"
   },
