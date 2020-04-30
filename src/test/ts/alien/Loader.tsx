@@ -7,7 +7,7 @@ import { Editor, IAllProps } from '../../../main/ts/components/Editor';
 export interface Context {
   DOMNode: Element;
   editor: any;
-  ref: React.RefObject<Editor>;
+  ref: any;
 }
 
 const getRoot = () => {
@@ -23,7 +23,7 @@ const cRender = (props: IAllProps) => {
   return Chain.async<Context, Context>((_, next, die) => {
     const originalInit = props.init || {};
     const originalSetup = originalInit.setup || Fun.noop;
-    let ref: React.RefObject<Editor> = null;
+    let ref: any = null;
 
     const init: Record<string, any> = {
       ...originalInit,

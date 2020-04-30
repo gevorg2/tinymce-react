@@ -41,7 +41,7 @@ export class Editor extends React.Component<IAllProps> {
   };
 
   private id: string;
-  private elementRef: React.RefObject<Element>;
+  private elementRef: any;
   private editor?: Record<any, any>;
   private inline: boolean;
   private currentContent?: string | null;
@@ -156,14 +156,14 @@ export class Editor extends React.Component<IAllProps> {
     const { tagName = 'div' } = this.props;
 
     return React.createElement(tagName, {
-      ref: {r => this.elementRef = r},
+      ref: r => this.elementRef = r,
       id: this.id
     });
   }
 
   private renderIframe() {
     return React.createElement('textarea', {
-      ref: {r => this.elementRef = r},
+      ref: r => this.elementRef = r,
       style: { visibility: 'hidden' },
       name: this.props.textareaName,
       id: this.id
