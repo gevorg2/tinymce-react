@@ -23,7 +23,7 @@ const cRender = (props: IAllProps) => {
   return Chain.async<Context, Context>((_, next, die) => {
     const originalInit = props.init || {};
     const originalSetup = originalInit.setup || Fun.noop;
-    const ref: React.RefObject<Editor> = React.createRef();
+    let ref: React.RefObject<Editor> = null;
 
     const init: Record<string, any> = {
       ...originalInit,
@@ -54,14 +54,14 @@ const cRender = (props: IAllProps) => {
      * touch the nodes created by TinyMCE. Since this only seems to be an issue when rendering TinyMCE 4 directly
      * into a root and a fix would be a breaking change, let's just wrap the editor in a <div> here for now.
      */
-    ReactDOM.render(<div><Editor ref={ref} {...props} init={init} /></div>, getRoot());
+    ReactDOM.render(<div><Editor ref={r => ref = r} {...props} init={init} /></div>, getRoot());
   });
 };
 
 // By rendering the Editor into the same root, React will perform a diff and update.
 const cReRender = (props: IAllProps) => {
   return Chain.op<Context>((context) => {
-    ReactDOM.render(<div><Editor ref={context.ref} {...props} /></div>, getRoot());
+    ReactDOM.render(<div><Editor ref={r => context.ref = r} {...props} /></div>, getRoot());
   });
 };
 

@@ -50,7 +50,7 @@ export class Editor extends React.Component<IAllProps> {
   constructor (props: Partial<IAllProps>) {
     super(props);
     this.id = this.props.id || uuid('tiny-react');
-    this.elementRef = React.createRef<Element>();
+    this.elementRef = null;
     this.inline = this.props.inline ? this.props.inline : this.props.init && this.props.init.inline;
     this.boundHandlers = {};
   }
@@ -156,14 +156,14 @@ export class Editor extends React.Component<IAllProps> {
     const { tagName = 'div' } = this.props;
 
     return React.createElement(tagName, {
-      ref: this.elementRef,
+      ref: {r => this.elementRef = r},
       id: this.id
     });
   }
 
   private renderIframe() {
     return React.createElement('textarea', {
-      ref: this.elementRef,
+      ref: {r => this.elementRef = r},
       style: { visibility: 'hidden' },
       name: this.props.textareaName,
       id: this.id
