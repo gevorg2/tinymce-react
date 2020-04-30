@@ -1,12 +1,12 @@
 {
   "name": "@tinymce/tinymce-react",
-  "version": "3.5.4",
+  "version": "3.5.5",
   "description": "Official TinyMCE React Component",
   "repository": {
     "url": "https://github.com/tinymce/tinymce-react"
   },
   "files": [
-    "lib",
+    "lib/",
     "README.md",
     "CHANGELOG.md",
     "LICENSE.txt"
