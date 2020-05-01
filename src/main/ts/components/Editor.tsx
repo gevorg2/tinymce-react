@@ -73,9 +73,9 @@ export class Editor extends React.Component<IAllProps> {
   public componentDidMount() {
     if (getTinymce() !== null) {
       this.initialise();
-    } else if (this.elementRef.current && this.elementRef.current.ownerDocument) {
+    } else if (this.elementRef && this.elementRef.ownerDocument) {
       ScriptLoader.load(
-        this.elementRef.current.ownerDocument,
+        this.elementRef.ownerDocument,
         this.getScriptSrc(),
         this.initialise
       );
@@ -103,7 +103,7 @@ export class Editor extends React.Component<IAllProps> {
   private initialise = () => {
     const finalInit = {
       ...this.props.init,
-      target: this.elementRef.current,
+      target: this.elementRef,
       readonly: this.props.disabled,
       inline: this.inline,
       plugins: mergePlugins(this.props.init && this.props.init.plugins, this.props.plugins),
@@ -120,8 +120,8 @@ export class Editor extends React.Component<IAllProps> {
       }
     };
 
-    if (isTextarea(this.elementRef.current)) {
-      this.elementRef.current.style.visibility = '';
+    if (isTextarea(this.elementRef)) {
+      this.elementRef.style.visibility = '';
     }
 
     getTinymce().init(finalInit);

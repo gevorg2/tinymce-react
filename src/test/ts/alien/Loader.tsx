@@ -32,7 +32,7 @@ const cRender = (props: IAllProps) => {
 
         editor.on('SkinLoaded', () => {
           setTimeout(() => {
-            Option.from(ref.current)
+            Option.from(ref)
             .map(ReactDOM.findDOMNode)
             .filter((val) => val instanceof Element)
             .fold(() => die('Could not find DOMNode'), (DOMNode) => {

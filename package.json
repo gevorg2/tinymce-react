@@ -1,6 +1,6 @@
 {
   "name": "@tinymce/tinymce-react",
-  "version": "3.5.7",
+  "version": "3.5.8",
   "description": "Official TinyMCE React Component",
   "repository": {
     "url": "https://github.com/tinymce/tinymce-react"
@@ -18,7 +18,7 @@
     "clean": "./node_modules/.bin/rimraf lib",
     "test": "./node_modules/.bin/bedrock-auto -b chrome-headless -f src/test/ts/**/*Test.ts",
     "test-manual": "./node_modules/.bin/bedrock -f src/test/ts/**/*Test.ts",
-    "build": "yarn run clean && tsc -p ./tsconfig.es2015.json && tsc -p ./tsconfig.cjs.json",
+    "build": "yarn run clean && ./node_modules/.bin/tsc -p ./tsconfig.es2015.json && ./node_modules/.bin/tsc -p ./tsconfig.cjs.json",
     "watch": "./node_modules/.bin/tsc -w -p ./tsconfig.es2015.json",
     "storybook": "./node_modules/.bin/start-storybook -p 6006",
     "storybook:build": "./node_modules/.bin/build-storybook",
